@@ -1,7 +1,7 @@
 # The name param is linked to the "upstream" parameter in
 # routes.yaml. If you called the app "foo", then the
 # upstream parameter would look like `upstream: "foo:http"`
-name: app
+name: sca
 # The "type" parameter takes the form "language:version".
 # This could be `python:3.5` for example
 type: php:5.6
