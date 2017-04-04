@@ -3,4 +3,4 @@
   upstream: "app:http"
 "http://{default}/":
   type: redirect
-  to: "http://www.{default}/"
+  to: "http://www.{default}/public"
