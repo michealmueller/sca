@@ -21,7 +21,7 @@ disk: 2048
 web:
   locations:
     "/":
-      root: "app"
+      root: "sca"
       passthru: "/index.php"
       index:
         - index.php
