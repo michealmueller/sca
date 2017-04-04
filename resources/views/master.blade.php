@@ -25,6 +25,26 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
     <!--[endif]-->
 
+    <script>
+        $(document).ready(function() {
+            var max_fields      = 10; //maximum input boxes allowed
+            var wrapper         = $("#member_wrapper"); //Fields wrapper
+            var add_button      = $("#AddMore"); //Add button ID
+
+            var x = 1; //initlal text box count
+            $(add_button).click(function(e){ //on add input button click
+                e.preventDefault();
+                if(x < max_fields){ //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div><input id="team_members" type="text" class="form-control" name="team_members[]" placeholder="Team Member" required/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+                }
+            });
+
+            $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+                e.preventDefault(); $(this).parent('div').remove(); x--;
+            })
+        });
+    </script>
 </head>
 <body>
 @include('shared.nav')

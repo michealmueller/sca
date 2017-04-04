@@ -18,6 +18,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//must be authneticated to access these specific routes.
+Route::group(['middleware' => ['web']], function() {
+    Route::get('/teamregistration', 'TeamsController@index');
+
+    Route::post('/teamregistration', 'TeamsController@store');
+
+    Route::get('/verify/{hash}/{id}', 'VerificationController@verify');
+});
+
 Route::get('/home', 'HomeController@index');
 
-Route::get('/verify/{hash}/{id}', 'VerificationController@verify');
+Route::get('/about', function(){
+    return view('about');
+});
+

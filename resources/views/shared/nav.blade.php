@@ -12,14 +12,17 @@
             <a class="navbar-brand" href="/">Star Citizen Armada</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div>
             <ul class="nav navbar-nav navbar-right">
+
                 <li>
                     <a href="/about">About</a>
                 </li>
+                <li>
+                    <a href="/teamregistration">Register Your Team</a>
+                </li>
                 <li class="dropdown">
                     <a href="/createtournament">Create a Tournament </a>
-
                 </li>
                 @if(Auth::check())
                     <li><a href="/profile">Hello, <b>{{ $user->username }}</b></a></li>
