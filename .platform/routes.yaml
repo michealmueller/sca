@@ -1,6 +1,0 @@
-"http://www.{default}/":
-  type: upstream
-  upstream: "sca:http"
-"http://{default}/":
-  type: redirect
-  to: "http://www.sca/public"

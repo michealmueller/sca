@@ -3,12 +3,6 @@
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
             <a class="navbar-brand" href="/">Star Citizen Armada</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -18,18 +12,18 @@
                 <li>
                     <a href="/about">About</a>
                 </li>
+                @if(Auth::check())
                 <li>
                     <a href="/teamregistration">Register Your Team</a>
                 </li>
                 <li class="dropdown">
                     <a href="/createtournament">Create a Tournament </a>
                 </li>
-                @if(Auth::check())
                     <li><a href="/profile">Hello, <b>{{ $user->username }}</b></a></li>
                 @else
                     <li><a href="/register">Register</a></li>
                 @endif
-                <li style="width: 150px; height: auto">
+                <li>
                     @if(!Auth::check())
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
                             <form class="dropdown-menu " method="post" action="{{ route('login') }}">
