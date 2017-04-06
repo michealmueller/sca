@@ -4,8 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use App\User;
 
-
+/**
+ * Class Team
+ * @package App
+ */
 class Team extends Model
 {
     use Notifiable;
@@ -15,7 +19,7 @@ class Team extends Model
      * @var array
      */
     protected $fillable = [
-        'team_name', 'team_members', 'team_website',
+        'team_name', 'team_members', 'team_website', 'user_id',
     ];
 
     /**
@@ -26,4 +30,20 @@ class Team extends Model
     protected $hidden = [
 
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

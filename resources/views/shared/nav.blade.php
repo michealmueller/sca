@@ -14,7 +14,7 @@
                 </li>
                 @if(Auth::check())
                 <li>
-                    <a href="/teamregistration">Register Your Team</a>
+                    <a href="/team-registration">Register Your Team</a>
                 </li>
                 <li class="dropdown">
                     <a href="/createtournament">Create a Tournament </a>

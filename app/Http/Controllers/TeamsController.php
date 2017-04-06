@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateTeamRequest;
 use App\Team;
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class TeamsController
+ * @package App\Http\Controllers
+ */
 class TeamsController extends Controller
 {
     /**
@@ -16,51 +22,50 @@ class TeamsController extends Controller
      */
     public function index()
     {
-        return view('createteam');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
         //
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @param \Illuminate\Http\Request $request
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return $this
      */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        $user = User();
-        $this->validate($request, [
-                'team_name'     => 'required|max:255|unique:teams',
-                'team_members'  => 'required|max:255|array',
-                'team_website'  => 'nullable|url',
-            ]);
+        $user = Auth::user();
+        return view('team-registration')->with('user', $user);
 
-        //condence team_members to a string
-        $request->team_members = implode(',', $request->team_members);
 
-        $team = new Team;
-        $team::create([
-            'team_name'     => $request->team_name,
-            'user_id'       => $user->id,
-            'team_members'  => $request->team_members,
-            'team_website'  => $request->team_website,
-        ]);
     }
 
     /**
-     * Display the specified resource.
+     * @param \App\Http\Requests\CreateTeamRequest $request
      *
-     * @param  \App\Team  $team
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function store(CreateTeamRequest $request)
+    {
+        
+        foreach($request->team_members as $team_member){
+            $user = User::where('username', $team_member)->first();
+            $team_members_id[$team_member] = $user->id;
+        }
+        //convert team_members_id to string.
+        $team_members_id = implode(',', $team_members_id);
+
+
+        Team::create([
+            'team_name'     => $request->team_name,
+            'user_id'       => Auth::id(),
+            'team_members'  => $team_members_id,
+            'team_website'  => $request->team_website,
+        ]);
+
+        return redirect('team-registration');
+    }
+
+    /**
+     * @param \App\Team $team
      */
     public function show(Team $team)
     {
@@ -99,5 +104,15 @@ class TeamsController extends Controller
     public function destroy(Team $team)
     {
         //
+    }
+
+    /**
+     *
+     * A Team is owned by a user.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user($method, $parameters)
+    {
+        return $this->belongsTo('App\User');
     }
 }

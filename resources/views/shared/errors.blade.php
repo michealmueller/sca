@@ -1,4 +1,4 @@
-@if(count($errors))
+@if($errors->any())
     <div class="form-group alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)

@@ -20,9 +20,9 @@ Auth::routes();
 
 //must be authneticated to access these specific routes.
 Route::group(['middleware' => ['web']], function() {
-    Route::get('/teamregistration', 'TeamsController@index');
+    Route::get('/team-registration', 'TeamsController@create');
 
-    Route::post('/teamregistration', 'TeamsController@store');
+    Route::post('/team-registration', 'TeamsController@store');
 
     Route::get('/verify/{hash}/{id}', 'VerificationController@verify');
 });

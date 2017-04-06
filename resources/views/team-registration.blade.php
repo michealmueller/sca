@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4 well">
-                <form method="post" action="/teamregistration">
+                <form method="post" action="/team-registration">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="team_name">Team Name:</label>
