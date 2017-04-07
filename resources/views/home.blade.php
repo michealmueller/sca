@@ -34,44 +34,19 @@
                     Welcome to Star Citizen Armada <small>Current News</small>
                 </h1>
             </div>
+            @foreach($posts as $post)
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class=" panel-heading ">
-                        <h4><i class="fa fa-fw fa-check"></i> Custom Tournament Setup</h4>
+                        <h4><i class="fa fa-fw fa-check"></i>{{ $post->title }}</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Arena Commander to Star Marine, customize your tournament from specific maps, weapons, to ships and ship loadouts.
-                            <br><br> OH, You dont want to share your ship loadout? That is fine, Sharing is not always caring. </p>
+                        {{ $post->excerpt }}
                         <!--<a href="#" class="btn btn-default">Learn More</a>-->
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading ">
-                        <h4><i class="fa fa-fw fa-gift"></i> Focused and Dedicated to Star Citizen</h4>
-                    </div>
-                    <div class="panel-body ">
-                        <p>As Star Citizen Progress's and evolves, so shall we. </p>
-                        <!--<a href="#" class="btn btn-default">Learn More</a>-->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading ">
-                        <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
-                    </div>
-                    <div class="panel-body ">
-                        <p>Our Platform is easy and quick to use, create a tournament to imortalize your skills to show
-                            off to your friends, or your orginization.</p>
-                        <p>Create a simple 2 man/team tournament to an entire league.</p>
-                        <p>More information on our Getting Started Page.</p>
-                        <a class="btn-block SCButton" href="getstarted.php"><div class="textplacing-news">Get Started</div></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            @endforeach
         <!-- /.row -->
 
         <!-- Open Tournaments-->

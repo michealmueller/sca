@@ -45,7 +45,7 @@ class TeamsController extends Controller
      */
     public function store(CreateTeamRequest $request)
     {
-        
+
         foreach($request->team_members as $team_member){
             $user = User::where('username', $team_member)->first();
             $team_members_id[$team_member] = $user->id;

@@ -33,10 +33,10 @@ class User extends Authenticatable
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function teams()
     {
-        return $this->belongsToMany(Team::class);
+        return $this->belongsTo(Team::class);
     }
 }

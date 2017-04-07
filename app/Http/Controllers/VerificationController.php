@@ -29,9 +29,9 @@ class VerificationController extends Controller
 
         if($user->hash == $request->hash){
             self::store($request);
-            return view('verification')->with('user', $user);
+            return view('verification', compact('user', $user));
         }else{
-            return view('verification')->with('user', $user);
+            return view('verification',compact('user', $user));
         }
 
     }

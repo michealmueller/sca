@@ -11,14 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout');
 
-//must be authneticated to access these specific routes.
+//must be authenticated to access these specific routes.
 Route::group(['middleware' => ['web']], function() {
     Route::get('/team-registration', 'TeamsController@create');
 
@@ -33,3 +31,8 @@ Route::get('/about', function(){
     return view('about');
 });
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
