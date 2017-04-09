@@ -19,7 +19,7 @@
                 <li class="dropdown">
                     <a href="/createtournament">Create a Tournament </a>
                 </li>
-                    <li><a href="/profile">Hello, <b>{{ $user->username }}</b></a></li>
+                    <li><a href="/profile">Hello, <b>{{ $user->name }}</b></a></li>
                 @else
                     <li><a href="/register">Register</a></li>
                 @endif

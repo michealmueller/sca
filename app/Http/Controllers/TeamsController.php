@@ -45,15 +45,19 @@ class TeamsController extends Controller
      */
     public function store(CreateTeamRequest $request)
     {
-
         foreach($request->team_members as $team_member){
-            $user = User::where('username', $team_member)->first();
-            $team_members_id[$team_member] = $user->id;
+            $user = User::where('name', $team_member)->first();
+            if(! $user)
+            {
+                $team_members_id[$team_member] = $team_member;
+            }else{
+                $team_members_id[$team_member] = $user->id;
+            }
         }
         //convert team_members_id to string.
         $team_members_id = implode(',', $team_members_id);
 
-
+        dd($team_members_id);
         Team::create([
             'team_name'     => $request->team_name,
             'user_id'       => Auth::id(),

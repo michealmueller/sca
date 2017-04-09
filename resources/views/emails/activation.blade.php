@@ -1,5 +1,5 @@
 @component('mail::message')
-Thank You for Registering at SCA, {{ $user->username }}
+Thank You for Registering at SCA, {{ $user->name }}
 
 @component('mail::panel')
 To verify you're account you need to click the button below, then you will be able to login.

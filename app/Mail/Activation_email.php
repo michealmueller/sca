@@ -11,16 +11,16 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class Activation_email extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $user;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user)
     {
-
+        $this->user = $user;
     }
 
     /**
@@ -30,6 +30,6 @@ class Activation_email extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.activation')->with('user', \Auth::user());
+        return $this->markdown('emails.activation')->with('user', $this->user);
     }
 }

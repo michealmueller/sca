@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,8 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = \Auth::user();
-        $posts = DB::table('posts')->get();
-        return view('home')->with('user', $user)->with('posts', $posts);
+        if(Auth::check()){
+            $user = Auth::user();
+            $posts = DB::table('posts')->get();
+            return view('home')->with(['user'=>$user,'posts'=>$posts]);
+        }else{
+            $posts = DB::table('posts')->get();
+            return view('home')->with('posts', $posts);
+        }
+
     }
 }

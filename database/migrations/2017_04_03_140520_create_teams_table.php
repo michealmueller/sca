@@ -24,12 +24,7 @@ class CreateTeamsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('teams', function(Blueprint $table) {
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-        });
+
     }
 
     /**
