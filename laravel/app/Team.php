@@ -8,7 +8,30 @@ use App\User;
 
 /**
  * Class Team
+ *
  * @package App
+ * @property int $id
+ * @property int|null $user_id
+ * @property string $team_name
+ * @property int $team_members_ids
+ * @property string|null $team_website
+ * @property int $wins
+ * @property int $losses
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property-read \App\User|null $creator
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $users
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereLosses($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereTeamMembersIds($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereTeamName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereTeamWebsite($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereWins($value)
+ * @mixin \Eloquent
  */
 class Team extends Model
 {

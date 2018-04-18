@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('content')
     <!-- Header Carousel -->
@@ -6,20 +6,28 @@
     <header id="first" class="">
         <div class="header-content">
             <div class="inner">
-                <h1 class="cursive">Star Citizen Armada</h1>
+                <h1 class="cursive">Citizen Warfare</h1>
                 <h4>The Premier Tournament System for Star Citizen.</h4>
                 <hr>
                 <div class="button">
                     <a href="#video-background" id="toggleVideo" data-toggle="collapse" class="btn btn-xs btn-sm">Toggle Video</a> &nbsp;
                 </div>
                 <div class="col-md-12">
-                    <a href="/getstarted" class="btn btn-primary btn-xl page-scroll">Get Started</a>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <a href="/getstarted" class="btn btn-lg btn-primary">
+                                <div class="">Get Started</div>
+                            </a>
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
                 </div>
             </div>
         </div>
         <div>
-            <video muted autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="images/ollisar.jpg" id="video-background">
-                <source id='video' src='video/background-vid.webm' type='video/webm'>
+            <video muted autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="assets/images/ollisar.jpg" id="video-background">
+                <source id='video' src='assets/video/background-vid.webm' type='video/webm'>
             </video>
         </div>
     </header>
@@ -31,7 +39,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Welcome to Star Citizen Armada <small>Current News</small>
+                    Welcome to Citizen Warfare <small>Current News</small>
                 </h1>
             </div>
             @foreach($posts as $post)
@@ -97,10 +105,10 @@
         <!-- Features Section -->
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header">Star Citizen Armada Features</h2>
+                <h2 class="page-header">Citizen Warfare Features</h2>
             </div>
             <div class="col-md-6">
-                <p>We at Star Citizen Armada want you to give you all
+                <p>We at Citizen Warfare want to give you all
                     the tools you need to effectively run your tournament, Be it Star Marine or Arena Commander.
                     Our System is designed around Star Citizen's game mechanics.</p>
                 <ul>
@@ -132,4 +140,6 @@
         </div>
 
         <hr>
+        </div>
+    </div>
 @endsection

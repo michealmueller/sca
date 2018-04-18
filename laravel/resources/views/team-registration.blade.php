@@ -4,7 +4,7 @@
     <header id="first" style="height: 30%;">
         <div class="" style="height: 30%;">
             <div class="inner">
-                <h1 class="cursive">Star Citizen Armada</h1>
+                <h1 class="cursive">Citizen Warfare</h1>
                 <h4>The Premier Tournament System for Star Citizen.</h4>
                 <hr>
             </div>

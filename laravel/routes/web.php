@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@ComingSoon');
 
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
@@ -32,7 +32,11 @@ Route::get('/about', function(){
 });
 
 
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+
+/*Oauth Routes*/
+Route::get('auth/{provider}','Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');

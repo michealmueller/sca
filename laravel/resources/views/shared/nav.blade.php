@@ -1,51 +1,61 @@
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">Star Citizen Armada</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div>
-            <ul class="nav navbar-nav navbar-right">
 
-                <li>
-                    <a href="/about">About</a>
-                </li>
-                @if(Auth::check())
-                <li>
-                    <a href="/team-registration">Register Your Team</a>
-                </li>
-                <li class="dropdown">
-                    <a href="/createtournament">Create a Tournament </a>
-                </li>
-                    <li><a href="/profile">Hello, <b>{{ $user->name }}</b></a></li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="/">Citizen Warfare</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav navbar-right-expand-toggle ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+            </li>
+            @if(Auth::check())
+            <li class="nav-item">
+                <a class="nav-link" href="/team-registration">Register Your Team</a>
+            </li>
+            <li class=" nav-item">
+                <a class="nav-link" href="/createtournament">Create a Tournament </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/profile">Hello, <b>{{ $user->name }}</b></a>
+            </li>
+            @else
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Register</a>
+            </li>
+            @endif
+            <li class="nav-item">
+            </li>
+            <li class="nav-item">
+                @if(!Auth::check())
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
                 @else
-                    <li><a href="/register">Register</a></li>
+                        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
                 @endif
-                <li>
-                    @if(!Auth::check())
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
-                            <form class="dropdown-menu " method="post" action="{{ route('login') }}">
-
-                                {{ csrf_field() }}
-                            <div class="form-group">
-                                <label for="email" class="sr-only">Email Address</label>
-                                <input type="text" id="email" class="form-control" name="email" placeholder="E-Mail" required autofocus>
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="sr-only">Password</label>
-                                <input type="password" id="password" class="form-control" name="password" placeholder="Password" required>
-                            </div>
-                                <button class="btn btn-sm btn-block btn-default " type="submit">Sign in</button>
-                            </form>
-                    @else
-                        <a href="{{ route('logout') }}">Logout</a>
-                    @endif
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+            </li>
+        </ul>
     </div>
-    <!-- /.container -->
 </nav>
+<!--
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+    </div>
+</nav>-->

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -25,14 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             $user = Auth::user();
             $posts = DB::table('posts')->get();
-            return view('home')->with(['user'=>$user,'posts'=>$posts]);
-        }else{
+            return view('home')->with(['user' => $user, 'posts' => $posts]);
+        } else {
             $posts = DB::table('posts')->get();
             return view('home')->with('posts', $posts);
         }
-
+    }
+    public function ComingSoon()
+    {
+        return view('comingsoon');
     }
 }
