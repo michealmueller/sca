@@ -12,7 +12,7 @@
 
 <head>
     <!-- Title -->
-    <title>404 | Unify - Responsive Website Template</title>
+    <title>Citizen Warfare - Coming Soom!</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">

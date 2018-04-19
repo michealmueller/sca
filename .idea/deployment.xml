@@ -7,6 +7,18 @@
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/laravel/C" />
+            <excludedPath local="true" path="$PROJECT_DIR$/laravel/vendor" />
+            <excludedPath local="true" path="$PROJECT_DIR$/laravel/.env" />
+            <excludedPath local="true" path="$PROJECT_DIR$/laravel/.idea" />
+            <excludedPath local="true" path="$PROJECT_DIR$/document_errors" />
+            <excludedPath local="true" path="$PROJECT_DIR$/public_shtml" />
+            <excludedPath local="true" path="$PROJECT_DIR$/public_html/index.html" />
+            <excludedPath path="/public_shtml" />
+            <excludedPath path="/document_errors" />
+            <excludedPath path="/public_html/index.html" />
+          </excludedPaths>
         </serverdata>
       </paths>
       <paths name="Opensim">
