@@ -31,6 +31,8 @@
     <link href="assets/css/custom.min.css" rel="stylesheet">
 
 
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="vendor/jquery-migrate/jquery-migrate.min.js"></script>
 </head>
 <body>
 @include('shared.nav')
@@ -40,8 +42,6 @@
 @include('shared.footer')
 
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="vendor/jquery-migrate/jquery-migrate.min.js"></script>
 <script src="vendor/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/bootstrap.bundle.min.js"></script>

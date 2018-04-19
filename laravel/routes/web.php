@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'HomeController@ComingSoon');
+Route::get('/', 'HomeController@index');
+//Route::get('/', 'HomeController@ComingSoon');
 
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');

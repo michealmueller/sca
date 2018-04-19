@@ -27,7 +27,8 @@
         </div>
         <div>
             <video muted autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="assets/images/ollisar.jpg" id="video-background">
-                <source id='video' src='assets/video/background-vid.webm' type='video/webm'>
+                <source id='video' src='/assets/video/background-video-720-2.webm' type='video/webm'>
+                <source id='video' src='/assets/video/background-vid.mp4' type='video/mp4'>
             </video>
         </div>
     </header>
