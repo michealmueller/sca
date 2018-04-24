@@ -17,8 +17,8 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('logout', 'Auth\LoginController@logout');
-Route::get('/', 'HomeController@index');
-//Route::get('/', 'HomeController@ComingSoon');
+//Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@ComingSoon');
 
 Route::get('/about', function(){
     return view('about');

@@ -56,9 +56,9 @@
         <!-- Heading -->
         <div class="row justify-content-center text-center g-mb-50">
             <div class="col-lg-9">
-                <h1 class="h2 g-color-white g-font-weight-600 mb-2">We are Unify</h1>
+                <h1 class="h2 g-color-white g-font-weight-600 mb-2">Citizen Warfare</h1>
                 <div class="d-inline-block g-width-30 g-height-2 g-bg-primary mb-2"></div>
-                <p class="lead mb-0">We are a creative studio focusing on culture, luxury, editorial &amp; art. Somewhere between sophistication and simplicity.</p>
+                <p class="lead mb-0">The Premier Tournament System for Star Citizen.</p>
             </div>
         </div>
         <!-- End Heading -->
@@ -73,9 +73,9 @@
                 </span>
                     </div>
                     <div class="media-body">
-                        <h3 class="h5 g-color-white g-font-weight-600 mb-20">Creative ideas</h3>
-                        <p class="g-color-gray-dark-v4">We strive to embrace and drive change in our industry which allows us to keep our clients relevant.</p>
-                        <a class="g-color-main g-color-primary--hover g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#!">Learn More</a>
+                        <h3 class="h5 g-color-white g-font-weight-600 mb-20">Star Marine</h3>
+                        <p class="g-color-gray-dark-v4">All game modes, maps, and team configurations supported!</p>
+                        <!--<a class="g-color-main g-color-primary--hover g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#!">Learn More</a>-->
                     </div>
                 </div>
                 <!-- End Icon Blocks -->
@@ -90,9 +90,9 @@
                 </span>
                     </div>
                     <div class="media-body">
-                        <h3 class="h5 g-color-white g-font-weight-600 mb-20">Excellent features</h3>
-                        <p class="g-color-gray-dark-v4">We strive to embrace and drive change in our industry which allows us to keep our clients relevant.</p>
-                        <a class="g-color-main g-color-primary--hover g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#!">Learn More</a>
+                        <h3 class="h5 g-color-white g-font-weight-600 mb-20">Arena Commander</h3>
+                        <p class="g-color-gray-dark-v4">Fly with your squad, or get a pick up squad, either way kick ass!</p>
+                        <!--<a class="g-color-main g-color-primary--hover g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#!">Learn More</a>-->
                     </div>
                 </div>
                 <!-- End Icon Blocks -->
@@ -107,9 +107,9 @@
                 </span>
                     </div>
                     <div class="media-body">
-                        <h3 class="h5 g-color-white g-font-weight-600 mb-20">Fully responsive</h3>
-                        <p class="g-color-gray-dark-v4">We strive to embrace and drive change in our industry which allows us to keep our clients relevant.</p>
-                        <a class="g-color-main g-color-primary--hover g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#!">Learn More</a>
+                        <h3 class="h5 g-color-white g-font-weight-600 mb-20">Bounty Hunting</h3>
+                        <p class="g-color-gray-dark-v4">Keep an eye on the bounty board, you can make some extra UEC, or just make sure you'r not on it.</p>
+                        <!--<a class="g-color-main g-color-primary--hover g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#!">Learn More</a>-->
                     </div>
                 </div>
                 <!-- End Icon Blocks -->
