@@ -22,8 +22,16 @@ class CreateTeamsTable extends Migration
             $table->integer('wins')->default(0);
             $table->integer('losses')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
 
+        Schema::create('team_members', function(Blueprint $table){
+            $table->integer('id');
+            $table->integer('team_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->timestamps();
+            $table->softDeletes();
+        });
 
     }
 
@@ -35,5 +43,6 @@ class CreateTeamsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('teams');
+        Schema::dropIfExists('team_members');
     }
 }

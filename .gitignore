@@ -51,6 +51,7 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
+
 ### Laravel template
 vendor/
 node_modules/
@@ -73,3 +74,8 @@ Homestead.json
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
 
+!public_html/vendor/
+!public_html/vendor/devdojo/chatter/assets/vendor/
+!laravel/resources/lang/vendor/
+!/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php
+!/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php

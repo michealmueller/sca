@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'EST',
 
     /*
     |--------------------------------------------------------------------------
@@ -132,7 +132,6 @@ return [
     | The service providers listed here will be automatically loaded on the
     | request to your application. Feel free to add your own services to
     | this array to grant expanded functionality to your applications.
-    |
     */
 
     'providers' => [
@@ -164,13 +163,14 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        DevDojo\Chatter\ChatterServiceProvider::class,
+        Laravel\Cashier\CashierServiceProvider::class,
 
         /*
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         TCG\Voyager\VoyagerServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
 
 
         /*
@@ -183,7 +183,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         /* Custom Providers */
-
+        dg\rssphp\src\FeedServiceProvider::class,
     ],
 
     /*
@@ -234,7 +234,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Feed' => dg\rssphp\src\FeedFacade::class,
     ],
 
 ];

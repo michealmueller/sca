@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\RssController as Rss;
 
 class LoginController extends Controller
 {
@@ -28,10 +30,11 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profile/main';
 
     private $user;
-
+    private $data;
+    private $rss;
     /**
      * Create a new controller instance.
      *
@@ -42,6 +45,10 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
 
         $this->user = new User;
+        $this->rss = new Rss;
+        $this->data = [
+            'feeddata' => $this->rss->fetch(3),
+        ];
     }
 
     /**
@@ -63,7 +70,8 @@ class LoginController extends Controller
 
         $authUser = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser, true);
-        return redirect($this->redirectTo);
+        //todo::create password for oath logins
+        return redirect($this->redirectTo)->with('data', $this->data);
     }
 
     public function findOrCreateUser($user, $provider)
@@ -78,5 +86,10 @@ class LoginController extends Controller
             'provider' => $provider,
             'provider_id' => $user->id
         ]);
+    }
+
+    public function CreatePassword()
+    {
+
     }
 }

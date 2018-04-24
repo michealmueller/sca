@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Controllers\RssController as Rss;
 
 class RegisterController extends Controller
 {
+    private $rss;
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -27,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profile';
 
     /**
      * Create a new controller instance.
@@ -48,8 +53,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'username' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -62,13 +67,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if($user = User::create([
-            'name' => $data['name'],
+
+        $user = User::create([
+            'username' => $data['username'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'hash' => sha1($data['email']),
-        ])){
-            \Event::fire('NewRegistration', $user);
-        }
+            'password' => password_hash($data['password'], PASSWORD_BCRYPT),
+            'hash' => Hash::make($data['email']),
+        ]);
+        //dd($user);
+        Event::fire('NewRegistration', $user);
+        return $user;
+
     }
 }

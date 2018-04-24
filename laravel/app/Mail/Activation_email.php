@@ -30,6 +30,6 @@ class Activation_email extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.activation')->with('user', $this->user);
+        return $this->view('emails.activation')->with('user', $this->user);
     }
 }

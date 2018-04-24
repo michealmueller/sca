@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateTeamRequest;
+use Auth;
 use App\Team;
 use App\User;
-use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\CreateTeamRequest;
+
+use App\Http\Controllers\RssController as Rss;
 
 /**
  * Class TeamsController
@@ -15,6 +17,15 @@ use Illuminate\Support\Facades\DB;
  */
 class TeamsController extends Controller
 {
+    private $rss;
+    private $data;
+
+    public function __construct()
+    {
+        $this->rss = new Rss;
+        $this->data = [];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +34,11 @@ class TeamsController extends Controller
     public function index()
     {
         //
+        $this->data = [
+            'user' => Auth::user(),
+            'feeddata' => $this->rss->fetch(3),
+        ];
+        return view('team-registration')->with('data', $this->data);
     }
 
     /**
@@ -31,19 +47,6 @@ class TeamsController extends Controller
      * @return $this
      */
     public function create(Request $request)
-    {
-        $user = Auth::user();
-        return view('team-registration')->with('user', $user);
-
-
-    }
-
-    /**
-     * @param \App\Http\Requests\CreateTeamRequest $request
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function store(CreateTeamRequest $request)
     {
         foreach($request->team_members as $team_member){
             $user = User::where('name', $team_member)->first();
@@ -66,6 +69,16 @@ class TeamsController extends Controller
         ]);
 
         return redirect('team-registration');
+    }
+
+    /**
+     * @param \App\Http\Requests\CreateTeamRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function store(CreateTeamRequest $request)
+    {
+
     }
 
     /**

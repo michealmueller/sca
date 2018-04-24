@@ -16,3 +16,26 @@
 .container .row .col-md-4{
     padding-bottom: 25px;
 }
+
+.list-group-item
+{
+    background-color: transparent;
+    color: #FFFFFF;
+    border: transparent;
+}
+.toggleable-form
+{
+    display: none;
+}
+
+.toggleable-value
+{
+    display: block;
+}
+
+.editButton
+{
+    background-color: transparent;
+    border: none;
+}
+

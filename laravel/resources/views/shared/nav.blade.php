@@ -17,7 +17,7 @@
                 <a class="nav-link" href="/createtournament">Create a Tournament </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/profile">Hello, <b>{{ $user->name }}</b></a>
+                <a class="nav-link" href="/profile">Hello, <b>{{ $data['user']->username }}</b></a>
             </li>
             @else
             <li class="nav-item">

@@ -26,7 +26,7 @@
             </div>
         </div>
         <div>
-            <video muted autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="assets/images/ollisar.jpg" id="video-background">
+            <video muted autoplay="" loop="" class="fillWidth fadeIn wow collapse show in" data-wow-delay="0.5s" poster="assets/images/ollisar.jpg" id="video-background">
                 <source id='video' src='/assets/video/background-video-720-2.webm' type='video/webm'>
                 <source id='video' src='/assets/video/background-vid.mp4' type='video/mp4'>
             </video>
@@ -120,7 +120,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
             </div>
             <div class="col-md-6">
-                <img class="img-responsive" src="images/SC3.png" alt="">
+                <img class="img-responsive" width="80%" src="assets/images/SC3.png" alt="">
             </div>
         </div>
         <!-- /.row -->

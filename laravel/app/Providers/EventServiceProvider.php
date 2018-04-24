@@ -16,6 +16,12 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\NewRegistration' => [
             'App\Listeners\SendVerificationEmail',
         ],
+        'DevDojo\Chatter\Events\ChatterAfterNewDiscussion' => [
+            'App\Listeners\HandleNewDiscussion',
+        ],
+        'App\Events\NewUser' => [
+            'App\Listeners\NewUserListener',
+        ],
     ];
 
     /**

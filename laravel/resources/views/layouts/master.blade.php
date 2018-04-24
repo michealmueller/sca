@@ -11,63 +11,179 @@
 
     <title>Citizen Warfare - The Premier Star Citizen Tournament System</title>
 
+    <link rel="shortcut icon" href="assets/favicon.ico">
+
+    <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-
-    <!-- Custom CSS -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
-
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- CSS Global Icons -->
     <link rel="stylesheet" href="vendor/icon-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/icon-line/css/simple-line-icons.css">
+    <link rel="stylesheet" href="vendor/icon-etlinefont/style.css">
     <link rel="stylesheet" href="vendor/icon-line-pro/style.css">
     <link rel="stylesheet" href="vendor/icon-hs/style.css">
     <link rel="stylesheet" href="vendor/animate.css">
+    <link rel="stylesheet" href="vendor/dzsparallaxer/dzsparallaxer.css">
+    <link rel="stylesheet" href="vendor/dzsparallaxer/dzsscroller/scroller.css">
+    <link rel="stylesheet" href="vendor/dzsparallaxer/advancedscroller/plugin.css">
+    <link rel="stylesheet" href="vendor/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="vendor/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="vendor/cubeportfolio-full/cubeportfolio/css/cubeportfolio.min.css">
+    <link rel="stylesheet" href="vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="vendor/hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" href="vendor/hs-bg-video/hs-bg-video.css">
+    <link rel="stylesheet" href="vendor/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="vendor/plyr/dist/plyr.css">
 
-
+    <!-- CSS Unify -->
     <link rel="stylesheet" href="assets/css/unify-core.css">
     <link rel="stylesheet" href="assets/css/unify-components.css">
     <link rel="stylesheet" href="assets/css/unify-globals.css">
+
+    <!-- Custom CSS -->
     <link href="assets/css/modern-business.min.css" rel="stylesheet">
     <link href="assets/css/custom.min.css" rel="stylesheet">
 
-
-    <script src="assets/js/jquery.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Chatter CSS -->
+    @yield('css')
 </head>
 <body>
-@include('shared.nav')
+    <main>
+        @include('shared.nav')
+        @yield('content')
+        @include('shared.footer')
+    </main>
 
-@yield('content')
+    <!-- JS Implementing Plugins -->
+    <script src="vendor/appear.js"></script>
+    <script src="vendor/slick-carousel/slick/slick.js"></script>
+    <script src="vendor/hs-megamenu/src/hs.megamenu.js"></script>
+    <script src="vendor/dzsparallaxer/dzsparallaxer.js"></script>
+    <script src="vendor/dzsparallaxer/dzsscroller/scroller.js"></script>
+    <script src="vendor/dzsparallaxer/advancedscroller/plugin.js"></script>
+    <script src="vendor/hs-bg-video/hs-bg-video.js"></script>
+    <script src="vendor/hs-bg-video/vendor/player.min.js"></script>
+    <script src="vendor/fancybox/jquery.fancybox.min.js"></script>
+    <script src="vendor/cubeportfolio-full/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
 
-@include('shared.footer')
+    <!-- JS Unify -->
+    <script src="assets/js/hs.core.js"></script>
+    <script src="assets/js/components/hs.carousel.js"></script>
+    <script src="assets/js/components/hs.header.js"></script>
+    <script src="assets/js/helpers/hs.hamburgers.js"></script>
+    <script src="assets/js/components/hs.tabs.js"></script>
+    <script src="assets/js/components/hs.popup.js"></script>
+    <script src="assets/js/components/hs.counter.js"></script>
+    <script src="assets/js/components/hs.cubeportfolio.js"></script>
+    <script src="assets/js/helpers/hs.bg-video.js"></script>
+    <script src="assets/js/components/hs.go-to.js"></script>
+    <script src="assets/js/components/hs.onscroll-animation.js"></script>
+    <script src="assets/js/components/hs.video-audio.js"></script>
+    <script src="vendor/plyr/dist/plyr.js"></script>
+    <script src="vendor/masonry/dist/masonry.pkgd.min.js"></script>
+    <script src="vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
 
+    <!-- JS Customization -->
+    <script src="assets/js/custom.js"></script>
 
-<script src="vendor/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-<script>
-    $(document).ready(function() {
-        var max_fields      = 10; //maximum input boxes allowed
-        var wrapper         = $("#member_wrapper"); //Fields wrapper
-        var add_button      = $("#AddMore"); //Add button ID
+    <!-- JS Plugins Init. -->
+    <script>
+        $(document).ready(function () {
+            // initialization of carousel
+            $.HSCore.components.HSCarousel.init('.js-carousel');
 
-        var x = 1; //initlal text box count
-        $(add_button).click(function(e){ //on add input button click
-            e.preventDefault();
-            if(x < max_fields){ //max input box allowed
-                x++; //text box increment
-                $(wrapper).append('<div><input id="team_members" type="text" class="form-control" name="team_members[]" placeholder="Team Member" required/><a href="#" class="remove_field">Remove</a></div>'); //add input box
-            }
+            // initialization of masonry
+            $('.masonry-grid').imagesLoaded().then(function () {
+                $('.masonry-grid').masonry({
+                    columnWidth: '.masonry-grid-sizer',
+                    itemSelector: '.masonry-grid-item',
+                    percentPosition: true
+                });
+            });
+
+            // initialization of scroll animation
+            $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
+
+            // initialization of custom video
+            $.HSCore.components.HSVideoAudio.init('.js-video-audio');
         });
 
-        $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-            e.preventDefault(); $(this).parent('div').remove(); x--;
-        })
-    });
-</script>
+        $(window).on('load', function () {
+            // initialization of header
+            $.HSCore.components.HSHeader.init($('#js-header'));
+            $.HSCore.helpers.HSHamburgers.init('.hamburger');
 
-@if(\Route::current()->getName() == 'login')
+            // initialization of HSMegaMenu component
+            $('.js-mega-menu').HSMegaMenu({
+                event: 'hover',
+                pageContainer: $('.container'),
+                breakpoint: 991
+            });
+        });
+    </script>
+
+    <!-- JS Plugins Init. -->
+    <script>
+        $(document).on('ready', function () {
+            // initialization of carousel
+            $.HSCore.components.HSCarousel.init('.js-carousel');
+
+            // initialization of tabs
+            $.HSCore.components.HSTabs.init('[role="tablist"]');
+
+            // initialization of header's height equal offset
+            $.HSCore.helpers.HSHeightCalc.init();
+
+            // initialization of scroll animation
+            $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
+
+            // initialization of video on background
+            $.HSCore.helpers.HSBgVideo.init('.js-bg-video');
+
+            // initialization of popups with media
+            $.HSCore.components.HSPopup.init('.js-fancybox-media', {
+                helpers: {
+                    media: {},
+                    overlay: {
+                        css: {
+                            'background': 'rgba(0, 0, 0, .8)'
+                        }
+                    }
+                }
+            });
+
+            // initialization of go to
+            $.HSCore.components.HSGoTo.init('.js-go-to');
+        });
+
+        $(window).on('load', function () {
+            // initialization of header
+            $.HSCore.components.HSHeader.init($('#js-header'));
+            $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+            // initialization of HSMegaMenu component
+            $('.js-mega-menu').HSMegaMenu({
+                event: 'hover',
+                pageContainer: $('.container'),
+                breakpoint: 991
+            });
+        });
+
+        $(window).on('resize', function () {
+            setTimeout(function () {
+                $.HSCore.components.HSTabs.init('[role="tablist"]');
+            }, 200);
+        });
+    </script>
+
+
+    @if(\Route::current()->getName() == 'login')
     <!-- JS Unify -->
     <script src="assets/js/hs.core.js"></script>
     <script src="assets/js/components/hs.header.js"></script>
@@ -112,5 +228,8 @@
         });
     </script>
 @endif
+<!-- Chatter JS -->
+@yield('js')
+
 </body>
 </html>

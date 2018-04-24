@@ -42,6 +42,34 @@
         <div class="g-absolute-centered">
             <h1 class="g-font-weight-200 g-mb-20">Citizen Warfare</h1>
             <p class="g-color-white-opacity-0_6 g-font-size-18">The Premier Tournament System for Star Citizen.</p>
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <div>
+                Want To know when we are launching? <br> leave your email and we will let you know!
+                <form method="post" action="/newsletter">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="Name">Name:</label>
+                        <input type="text" class="form-control" id="Name" aria-describedby="Full Name" placeholder="Name" name="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newsletteremail">Email:</label>
+                        <input type="email" class="form-control" id="newsletteremail" aria-describedby="Newsletter" placeholder="Enter email" name="newsletteremail">
+                        <small id="newsletteremail" class="form-text text-muted">We'll never share your email with anyone else. <br> Our Word is Our Bond</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 </main>

@@ -2,9 +2,11 @@
 
 namespace App;
 
+use Laravel\Cashier\Billable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Team;
 
 /**
  * Class User
@@ -40,7 +42,10 @@ use App\Team;
  */
 class User extends Authenticatable
 {
+    use Billable;
     use Notifiable;
+    use SoftDeletes;
+    use CanResetPassword;
 
     /**
      * The attributes that are mass assignable.
@@ -48,7 +53,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password', 'hash', 'team_id', 'activated', 'provider', 'provider_id'
+        'firstname', 'lastname', 'username', 'email', 'password', 'hash', 'team_id', 'activated', 'provider', 'provider_id'
     ];
 
     /**
@@ -63,8 +68,17 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function teams()
+    public function team()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Team::class, 'team_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user_id');
+    }
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
     }
 }

@@ -15,7 +15,7 @@ class VerificationController extends Controller
      */
     public function index(Request $request)
     {
-        return view('verification', $request);
+        return view('emails.verification', $request);
     }
 
     /**
@@ -25,13 +25,14 @@ class VerificationController extends Controller
      */
     public function verify(Request $request)
     {
-        $user = User::find($request->id);
+        //dd($request);
+        $user = User::findorfail($request->id);
 
-        if($user->hash == $request->hash){
+        if ($user->hash == $request->hash) {
             self::store($request);
-            return view('verification', compact('user', $user));
-        }else{
-            return view('verification',compact('user', $user));
+            return redirect('/ThankYou');
+        } else {
+            return view('members.NotAuthorized', compact('user', $user));
         }
 
     }
@@ -39,58 +40,14 @@ class VerificationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         DB::table('users')
             ->where('id', $request->id)
-            ->update(['activated'=>1]);
+            ->update(['activated' => 1]);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }

@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\RssController as Rss;
 
 class HomeController extends Controller
 {
+    private $data;
+    private $rss;
     /**
      * Create a new controller instance.
      *
@@ -16,6 +19,11 @@ class HomeController extends Controller
     public function __construct()
     {
         //$this->middleware('auth');
+        $this->rss = new Rss;
+        $this->rss->store();
+        $this->data = [
+            'feeddata' => $this->rss->fetch(3),
+        ];
     }
 
     /**
@@ -26,16 +34,54 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            $user = Auth::user();
+            $this->data['user'] = Auth::user();
             $posts = DB::table('posts')->get();
-            return view('home')->with(['user' => $user, 'posts' => $posts]);
-        } else {
-            $posts = DB::table('posts')->get();
-            return view('home')->with('posts', $posts);
+            return view('home2')->with(['posts' => $posts, 'data' => $this->data]);
         }
+
+        $posts = DB::table('posts')->get();
+
+
+        //$this->data['feeddata'] = $feed;
+
+        return view('home2')->with('posts', $posts)->with('data', $this->data);
     }
     public function ComingSoon()
     {
         return view('comingsoon');
+    }
+
+    public function Newsletter(Request $request)
+    {
+        $validatedData = $request->validate([
+            'email' => 'required|email|unique:newsletter,email',
+            'name' => 'required',
+        ]);
+
+        $email = $request->newsletteremail;
+        $name = $request->name;
+
+        $newsletter = DB::table('newsletter')->insert([
+            'email' => $email,
+            'name' => $name,
+        ]);
+
+        if($newsletter){
+            session(['reged' => true]);
+            return view('comingsoon');
+        }
+
+        return back()->with('data', $this->data);
+
+    }
+
+    public function Privacy()
+    {
+        //dd($this->data);
+        return view('privacy')->with('data', $this->data);
+    }
+    public function Terms()
+    {
+        return view('terms')->with('data', $this->data);
     }
 }
