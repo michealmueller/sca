@@ -15,17 +15,7 @@
                         <!-- Figure Social Icons -->
                         <ul class="list-inline text-center g-flex-middle-item--bottom g-mb-20">
                             <li class="list-inline-item align-middle g-mx-7">
-                                <a class="u-icon-v1 u-icon-size--md g-color-white" href="#!">
-                                    <i class="icon-note u-line-icon-pro"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item align-middle g-mx-7">
-                                <a class="u-icon-v1 u-icon-size--md g-color-white" href="#!">
-                                    <i class="icon-notebook u-line-icon-pro"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item align-middle g-mx-7">
-                                <a class="u-icon-v1 u-icon-size--md g-color-white" href="#!">
+                                <a class="u-icon-v1 u-icon-size--md g-color-white" href="#modal6" data-modal-target="#modal6" data-modal-effect="slide">
                                     <i class="icon-settings u-line-icon-pro"></i>
                                 </a>
                             </li>
@@ -77,7 +67,26 @@
                 @include('settings')
             </div>
         </div>
-    </div>
 
+        <!-- Demo modal window -->
+        <div id="modal6" class="text-left g-max-width-600 g-bg-white g-overflow-y-auto g-pa-20" style="display: none;">
+            <button type="button" class="close" onclick="Custombox.modal.close();">
+                <i class="hs-icon hs-icon-close"></i>
+            </button>
+
+            <form method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <input type="hidden" name="avatar" value="upload" >
+                <!-- Advanced File Input -->
+                    <h4 class="h6 g-font-weight-600 g-color-black g-mb-20">Advanced File input</h4>
+                    <div class="jFiler">
+                        <input class="js-file-attachment" name="avatar" type="file" style="position: absolute; left: -9999px; top: -9999px; z-index: -9999;">
+                    </div>
+                <!-- End Advanced File Input -->
+            </form>
+
+
+        </div>
+        <!-- End Demo modal window -->
 
 @endsection

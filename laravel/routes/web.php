@@ -17,8 +17,8 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('logout', 'Auth\LoginController@logout');
-//Route::get('/', 'HomeController@index');
-Route::get('/', 'HomeController@ComingSoon');
+Route::get('/', 'HomeController@index');
+//Route::get('/', 'HomeController@ComingSoon');
 
 Route::get('/about', function(){
     return view('about');
@@ -35,6 +35,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/profile','ProfileController@index');
     Route::post('/profile','ProfileController@update');
+
+    Route::get('/upgrade', 'PurchaseController@index');
 
 });
 

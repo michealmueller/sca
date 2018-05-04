@@ -134,7 +134,7 @@ class ProfileController extends Controller
                 break;
             case 'updateCallsign';
                 $updated = DB::table('users')->update([
-                    'callsign' => $request->callsign,
+                    'call_sign' => $request->callsign,
                 ]);
                 if($updated){
                     session()->put('success', 'Successfully updated your Call Sign');

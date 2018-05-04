@@ -4,19 +4,13 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
-/* Global Styles*/
-@font-face {
-    font-family: 'orbitron';
-    src: url('../fonts/Orbitron_Medium.ttf') format('truetype');
-}
-
 html,
 body {
     height: 100%;
     background-color: #343A40;
-    /*background-image: url("../images/bg-stars-2560.jpg");*/
-    /*font-family: 'orbitron', cursive;
-    text-transform: none;*/
+    background-image: url("../images/bg-stars-2560.jpg");
+    font-family: 'orbitron', cursive;
+    text-transform: none;
 }
 
 body {

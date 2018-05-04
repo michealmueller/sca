@@ -70,7 +70,7 @@
             })
         </script>
         @php
-            Session::forget('imperror');
+            Session::forget('impinfo');
         @endphp
     @endif
 </div>

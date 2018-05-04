@@ -1,13 +1,13 @@
 <!-- Footer -->
 <footer>
-    <div id="contacts-section" class=" g-color-white-opacity-0_8 ">
+    <div id="contacts-section" class=" g-color-white-opacity-0_8 g-pa-25">
         <div class="container">
             <div class="row">
 
                 <!-- Footer Content -->
                 <div class="col-lg-3">
                     <div class="u-heading-v2-3--bottom g-brd-white-opacity-0_8 g-mb-20">
-                        <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Latest From INN</h2>
+                        <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Latest</h2>
                     </div>
                     @foreach($data['feeddata'] as $rssItem)
                     <article>
@@ -95,7 +95,7 @@
                               </span>
                             </div>
                             <p class="mb-0">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="mailto:info@citizenwarfare.com">info@citizenwarfare.com</a>
+                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="mailto:support@citizenwarfare.com">support@citizenwarfare.com</a>
                                 <br>
                                 <a class="g-color-white-opacity-0_8 g-color-white--hover" href="https://muellertek.com">www.Muellertek.com</a>
                             </p>
@@ -132,7 +132,7 @@
         </div>
     </div>
     <!-- End Footer -->
-    <div class="container" style="background-color: rgba(0,0,0,.5)">
+    <div class="container">
         <div class="row">
             <div class="col-md-8 text-center text-md-left g-mb-10 g-mb-0--md">
                 <div class="d-lg-flex">

@@ -32,6 +32,9 @@ use App\User;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereWins($value)
  * @mixin \Eloquent
+ * @property string|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $members
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereDeletedAt($value)
  */
 class Team extends Model
 {

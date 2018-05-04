@@ -20,6 +20,7 @@ class HomeController extends Controller
     {
         //$this->middleware('auth');
         $this->rss = new Rss;
+        //TODO::move to background
         $this->rss->store();
         $this->data = [
             'feeddata' => $this->rss->fetch(3),
@@ -41,9 +42,7 @@ class HomeController extends Controller
 
         $posts = DB::table('posts')->get();
 
-
-        //$this->data['feeddata'] = $feed;
-
+        //dd($this->data['feeddata']);
         return view('home2')->with('posts', $posts)->with('data', $this->data);
     }
     public function ComingSoon()

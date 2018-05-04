@@ -184,6 +184,7 @@ return [
 
         /* Custom Providers */
         dg\rssphp\src\FeedServiceProvider::class,
+        inc\magpierss\src\MagpieServiceProvider::class,
     ],
 
     /*
@@ -234,7 +235,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+
+        /* Custom Facades */
         'Feed' => dg\rssphp\src\FeedFacade::class,
+        'Magpie' => inc\magpierss\src\MagpieFacade::class,
     ],
 
 ];

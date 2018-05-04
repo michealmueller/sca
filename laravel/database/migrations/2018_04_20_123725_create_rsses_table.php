@@ -15,9 +15,13 @@ class CreateRssesTable extends Migration
     {
         Schema::create('rsses', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('rss_feed');
             $table->string('rss_title')->unique();
+            $table->string('rss_feedImage');
             $table->string('rss_link');
             $table->dateTime('rss_pubDate');
+            $table->longText('rss_content');
+            $table->longText('rss_contentExerpt');
             $table->timestamps();
             $table->softDeletes();
         });

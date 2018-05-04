@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2018-04-17 21:32:16.
+    * Generated on 2018-04-26 12:30:41.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -38,6 +38,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'purifier' => \LukeTowers\Purifier\Purifier::class,
+        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'image' => \Intervention\Image\ImageManager::class,
         'arrilot.widget' => \Arrilot\Widgets\Factories\WidgetFactory::class,
         'arrilot.async-widget' => \Arrilot\Widgets\Factories\AsyncWidgetFactory::class,
@@ -47,7 +49,8 @@ namespace PHPSTORM_META {
         'voyager.alert.components.title' => \TCG\Voyager\Alert\Components\TitleComponent::class,
         'voyager.alert.components.text' => \TCG\Voyager\Alert\Components\TextComponent::class,
         'voyager.alert.components.button' => \TCG\Voyager\Alert\Components\ButtonComponent::class,
-        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -129,8 +132,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
@@ -139,7 +140,6 @@ namespace PHPSTORM_META {
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
-        'Laravel\Socialite\Contracts\Factory' => \Laravel\Socialite\SocialiteManager::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::make(0), map([
         '' => '@',
@@ -171,6 +171,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'purifier' => \LukeTowers\Purifier\Purifier::class,
+        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'image' => \Intervention\Image\ImageManager::class,
         'arrilot.widget' => \Arrilot\Widgets\Factories\WidgetFactory::class,
         'arrilot.async-widget' => \Arrilot\Widgets\Factories\AsyncWidgetFactory::class,
@@ -180,7 +182,8 @@ namespace PHPSTORM_META {
         'voyager.alert.components.title' => \TCG\Voyager\Alert\Components\TitleComponent::class,
         'voyager.alert.components.text' => \TCG\Voyager\Alert\Components\TextComponent::class,
         'voyager.alert.components.button' => \TCG\Voyager\Alert\Components\ButtonComponent::class,
-        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -262,8 +265,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
@@ -272,7 +273,6 @@ namespace PHPSTORM_META {
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
-        'Laravel\Socialite\Contracts\Factory' => \Laravel\Socialite\SocialiteManager::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
         '' => '@',
@@ -304,6 +304,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'purifier' => \LukeTowers\Purifier\Purifier::class,
+        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'image' => \Intervention\Image\ImageManager::class,
         'arrilot.widget' => \Arrilot\Widgets\Factories\WidgetFactory::class,
         'arrilot.async-widget' => \Arrilot\Widgets\Factories\AsyncWidgetFactory::class,
@@ -313,7 +315,8 @@ namespace PHPSTORM_META {
         'voyager.alert.components.title' => \TCG\Voyager\Alert\Components\TitleComponent::class,
         'voyager.alert.components.text' => \TCG\Voyager\Alert\Components\TextComponent::class,
         'voyager.alert.components.button' => \TCG\Voyager\Alert\Components\ButtonComponent::class,
-        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -395,8 +398,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
@@ -405,7 +406,6 @@ namespace PHPSTORM_META {
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
-        'Laravel\Socialite\Contracts\Factory' => \Laravel\Socialite\SocialiteManager::class,
     ]));
     override(\App::make(0), map([
         '' => '@',
@@ -437,6 +437,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'purifier' => \LukeTowers\Purifier\Purifier::class,
+        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'image' => \Intervention\Image\ImageManager::class,
         'arrilot.widget' => \Arrilot\Widgets\Factories\WidgetFactory::class,
         'arrilot.async-widget' => \Arrilot\Widgets\Factories\AsyncWidgetFactory::class,
@@ -446,7 +448,8 @@ namespace PHPSTORM_META {
         'voyager.alert.components.title' => \TCG\Voyager\Alert\Components\TitleComponent::class,
         'voyager.alert.components.text' => \TCG\Voyager\Alert\Components\TextComponent::class,
         'voyager.alert.components.button' => \TCG\Voyager\Alert\Components\ButtonComponent::class,
-        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -528,8 +531,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
@@ -538,7 +539,6 @@ namespace PHPSTORM_META {
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
-        'Laravel\Socialite\Contracts\Factory' => \Laravel\Socialite\SocialiteManager::class,
     ]));
     override(\App::makeWith(0), map([
         '' => '@',
@@ -570,6 +570,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'purifier' => \LukeTowers\Purifier\Purifier::class,
+        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'image' => \Intervention\Image\ImageManager::class,
         'arrilot.widget' => \Arrilot\Widgets\Factories\WidgetFactory::class,
         'arrilot.async-widget' => \Arrilot\Widgets\Factories\AsyncWidgetFactory::class,
@@ -579,7 +581,8 @@ namespace PHPSTORM_META {
         'voyager.alert.components.title' => \TCG\Voyager\Alert\Components\TitleComponent::class,
         'voyager.alert.components.text' => \TCG\Voyager\Alert\Components\TextComponent::class,
         'voyager.alert.components.button' => \TCG\Voyager\Alert\Components\ButtonComponent::class,
-        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -661,8 +664,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
@@ -671,7 +672,6 @@ namespace PHPSTORM_META {
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
-        'Laravel\Socialite\Contracts\Factory' => \Laravel\Socialite\SocialiteManager::class,
     ]));
     override(\app(0), map([
         '' => '@',
@@ -703,6 +703,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'purifier' => \LukeTowers\Purifier\Purifier::class,
+        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'image' => \Intervention\Image\ImageManager::class,
         'arrilot.widget' => \Arrilot\Widgets\Factories\WidgetFactory::class,
         'arrilot.async-widget' => \Arrilot\Widgets\Factories\AsyncWidgetFactory::class,
@@ -712,7 +714,8 @@ namespace PHPSTORM_META {
         'voyager.alert.components.title' => \TCG\Voyager\Alert\Components\TitleComponent::class,
         'voyager.alert.components.text' => \TCG\Voyager\Alert\Components\TextComponent::class,
         'voyager.alert.components.button' => \TCG\Voyager\Alert\Components\ButtonComponent::class,
-        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -794,8 +797,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
@@ -804,7 +805,6 @@ namespace PHPSTORM_META {
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
-        'Laravel\Socialite\Contracts\Factory' => \Laravel\Socialite\SocialiteManager::class,
     ]));
     override(\resolve(0), map([
         '' => '@',
@@ -836,6 +836,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'purifier' => \LukeTowers\Purifier\Purifier::class,
+        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'image' => \Intervention\Image\ImageManager::class,
         'arrilot.widget' => \Arrilot\Widgets\Factories\WidgetFactory::class,
         'arrilot.async-widget' => \Arrilot\Widgets\Factories\AsyncWidgetFactory::class,
@@ -845,7 +847,8 @@ namespace PHPSTORM_META {
         'voyager.alert.components.title' => \TCG\Voyager\Alert\Components\TitleComponent::class,
         'voyager.alert.components.text' => \TCG\Voyager\Alert\Components\TextComponent::class,
         'voyager.alert.components.button' => \TCG\Voyager\Alert\Components\ButtonComponent::class,
-        'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -927,8 +930,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
@@ -937,7 +938,6 @@ namespace PHPSTORM_META {
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
-        'Laravel\Socialite\Contracts\Factory' => \Laravel\Socialite\SocialiteManager::class,
     ]));
 
     override(\Illuminate\Support\Arr::add(0), type(0));

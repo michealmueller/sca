@@ -39,6 +39,41 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereTeamId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $firstname
+ * @property string|null $lastname
+ * @property string $username
+ * @property string|null $call_sign
+ * @property string|null $provider
+ * @property string|null $provider_id
+ * @property string|null $deleted_at
+ * @property string|null $stripe_id
+ * @property string|null $braintree_id
+ * @property string|null $card_brand
+ * @property string|null $paypal_email
+ * @property string|null $card_last_four
+ * @property string|null $trial_ends_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Comment[] $comments
+ * @property-read \App\Profile $profile
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Cashier\Subscription[] $subscriptions
+ * @property-read \App\Team|null $team
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\User onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereBraintreeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereCallSign($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereCardBrand($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereCardLastFour($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereFirstname($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereLastname($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePaypalEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereProvider($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereProviderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereStripeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereTrialEndsAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUsername($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\User withoutTrashed()
  */
 class User extends Authenticatable
 {

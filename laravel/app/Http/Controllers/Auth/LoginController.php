@@ -7,7 +7,7 @@ use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Laravel\Socialite\Facades\Socialite;
+
 use App\Http\Controllers\RssController as Rss;
 
 class LoginController extends Controller
@@ -30,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/profile/main';
+    protected $redirectTo = '/profile';
 
     private $user;
     private $data;
@@ -57,7 +57,7 @@ class LoginController extends Controller
      */
     public function redirectToProvider($provider)
     {
-        return Socialite::driver($provider)->redirect();
+        //return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -66,12 +66,12 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver($provider)->user();
+        /*$user = Socialite::driver($provider)->user();
 
-        $authUser = $this->findOrCreateUser($user, $provider);
+        /$authUser = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser, true);
         //todo::create password for oath logins
-        return redirect($this->redirectTo)->with('data', $this->data);
+        return redirect($this->redirectTo)->with('data', $this->data);*/
     }
 
     public function findOrCreateUser($user, $provider)

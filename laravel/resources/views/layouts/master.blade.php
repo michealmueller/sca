@@ -24,14 +24,15 @@
     <link rel="stylesheet" href="vendor/icon-line-pro/style.css">
     <link rel="stylesheet" href="vendor/icon-hs/style.css">
     <link rel="stylesheet" href="vendor/animate.css">
+    <link rel="stylesheet" href="vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="vendor/dzsparallaxer/dzsparallaxer.css">
     <link rel="stylesheet" href="vendor/dzsparallaxer/dzsscroller/scroller.css">
     <link rel="stylesheet" href="vendor/dzsparallaxer/advancedscroller/plugin.css">
     <link rel="stylesheet" href="vendor/fancybox/jquery.fancybox.css">
     <link rel="stylesheet" href="vendor/slick-carousel/slick/slick.css">
-    <link rel="stylesheet" href="vendor/cubeportfolio-full/cubeportfolio/css/cubeportfolio.min.css">
     <link rel="stylesheet" href="vendor/hs-megamenu/src/hs.megamenu.css">
     <link rel="stylesheet" href="vendor/hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" href="vendor/hs-admin-icons/hs-admin-icons.css">
     <link rel="stylesheet" href="vendor/hs-bg-video/hs-bg-video.css">
     <link rel="stylesheet" href="vendor/slick-carousel/slick/slick.css">
     <link rel="stylesheet" href="vendor/plyr/dist/plyr.css">
@@ -40,6 +41,7 @@
     <link rel="stylesheet" href="assets/css/unify-core.css">
     <link rel="stylesheet" href="assets/css/unify-components.css">
     <link rel="stylesheet" href="assets/css/unify-globals.css">
+    <link rel="stylesheet" href="assets/css/admin/unify-admin.css">
 
     <!-- Custom CSS -->
     <link href="assets/css/modern-business.min.css" rel="stylesheet">
@@ -74,14 +76,16 @@
 
     <!-- JS Unify -->
     <script src="assets/js/hs.core.js"></script>
-    <script src="assets/js/components/hs.carousel.js"></script>
     <script src="assets/js/components/hs.header.js"></script>
     <script src="assets/js/helpers/hs.hamburgers.js"></script>
+    <script src="assets/js/helpers/hs.bg-video.js"></script>
+    <script src="assets/js/components/hs.carousel.js"></script>
     <script src="assets/js/components/hs.tabs.js"></script>
     <script src="assets/js/components/hs.popup.js"></script>
     <script src="assets/js/components/hs.counter.js"></script>
     <script src="assets/js/components/hs.cubeportfolio.js"></script>
-    <script src="assets/js/helpers/hs.bg-video.js"></script>
+    <script src="assets/js/components/hs.dropdown.js"></script>
+    <script src="assets/js/components/hs.scrollbar.js"></script>
     <script src="assets/js/components/hs.go-to.js"></script>
     <script src="assets/js/components/hs.onscroll-animation.js"></script>
     <script src="assets/js/components/hs.video-audio.js"></script>
@@ -92,142 +96,65 @@
     <!-- JS Customization -->
     <script src="assets/js/custom.js"></script>
 
+
     <!-- JS Plugins Init. -->
     <script>
-        $(document).ready(function () {
-            // initialization of carousel
-            $.HSCore.components.HSCarousel.init('.js-carousel');
+        $(document).on('ready', function () {
 
-            // initialization of masonry
-            $('.masonry-grid').imagesLoaded().then(function () {
-                $('.masonry-grid').masonry({
-                    columnWidth: '.masonry-grid-sizer',
-                    itemSelector: '.masonry-grid-item',
-                    percentPosition: true
-                });
-            });
 
             // initialization of scroll animation
             $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
 
             // initialization of custom video
             $.HSCore.components.HSVideoAudio.init('.js-video-audio');
-        });
 
-        $(window).on('load', function () {
-            // initialization of header
-            $.HSCore.components.HSHeader.init($('#js-header'));
-            $.HSCore.helpers.HSHamburgers.init('.hamburger');
-
-            // initialization of HSMegaMenu component
-            $('.js-mega-menu').HSMegaMenu({
-                event: 'hover',
-                pageContainer: $('.container'),
-                breakpoint: 991
-            });
-        });
-    </script>
-
-    <!-- JS Plugins Init. -->
-    <script>
-        $(document).on('ready', function () {
             // initialization of carousel
             $.HSCore.components.HSCarousel.init('.js-carousel');
 
             // initialization of tabs
             $.HSCore.components.HSTabs.init('[role="tablist"]');
 
-            // initialization of header's height equal offset
-            $.HSCore.helpers.HSHeightCalc.init();
+            // initialization of counters
+            var counters = $.HSCore.components.HSCounter.init('[class*="js-counter"]');
 
-            // initialization of scroll animation
-            $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
+            // initialization of go to
+            $.HSCore.components.HSGoTo.init('.js-go-to');
 
+            // initialization of HSDropdown component
+            $.HSCore.components.HSDropdown.init($('[data-dropdown-target]'), {dropdownHideOnScroll: false});
+        });
+
+        $(window).on('load', function () {
+            // initialization of header
+            $.HSCore.components.HSHeader.init($('#js-header'));
+            $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+            // initialization of HSMegaMenu component
+            $('.js-mega-menu').HSMegaMenu({
+                event: 'hover',
+                pageContainer: $('.container'),
+                breakpoint: 991
+            });
+        });
+
+        $(window).on('resize', function () {
+            setTimeout(function () {
+                $.HSCore.components.HSTabs.init('[role="tablist"]');
+            }, 200);
+        });
+    </script>
+    <script >
+        $(document).ready(function () {
             // initialization of video on background
             $.HSCore.helpers.HSBgVideo.init('.js-bg-video');
 
-            // initialization of popups with media
-            $.HSCore.components.HSPopup.init('.js-fancybox-media', {
-                helpers: {
-                    media: {},
-                    overlay: {
-                        css: {
-                            'background': 'rgba(0, 0, 0, .8)'
-                        }
-                    }
-                }
-            });
-
-            // initialization of go to
-            $.HSCore.components.HSGoTo.init('.js-go-to');
-        });
-
-        $(window).on('load', function () {
-            // initialization of header
-            $.HSCore.components.HSHeader.init($('#js-header'));
-            $.HSCore.helpers.HSHamburgers.init('.hamburger');
-
-            // initialization of HSMegaMenu component
-            $('.js-mega-menu').HSMegaMenu({
-                event: 'hover',
-                pageContainer: $('.container'),
-                breakpoint: 991
-            });
-        });
-
-        $(window).on('resize', function () {
-            setTimeout(function () {
-                $.HSCore.components.HSTabs.init('[role="tablist"]');
-            }, 200);
+            // initialization of popups
+            $.HSCore.components.HSPopup.init('.js-fancybox');
         });
     </script>
 
 
-    @if(\Route::current()->getName() == 'login')
-    <!-- JS Unify -->
-    <script src="assets/js/hs.core.js"></script>
-    <script src="assets/js/components/hs.header.js"></script>
-    <script src="assets/js/helpers/hs.hamburgers.js"></script>
-    <script src="assets/js/components/hs.tabs.js"></script>
-    <script src="assets/js/components/hs.go-to.js"></script>
-    <script src="assets/js/helpers/hs.focus-state.js"></script>
 
-    <!-- JS Customization -->
-    <script src="assets/js/custom.js"></script>
-
-    <!-- JS Plugins Init. -->
-    <script>
-        $(document).on('ready', function () {
-            // initialization of tabs
-            $.HSCore.components.HSTabs.init('[role="tablist"]');
-
-            // initialization of go to
-            $.HSCore.components.HSGoTo.init('.js-go-to');
-
-            // Form Focus State
-            $.HSCore.helpers.HSFocusState.init();
-        });
-
-        $(window).on('load', function () {
-            // initialization of header
-            $.HSCore.components.HSHeader.init($('#js-header'));
-            $.HSCore.helpers.HSHamburgers.init('.hamburger');
-
-            // initialization of HSMegaMenu component
-            $('.js-mega-menu').HSMegaMenu({
-                event: 'hover',
-                pageContainer: $('.container'),
-                breakpoint: 991
-            });
-        });
-
-        $(window).on('resize', function () {
-            setTimeout(function () {
-                $.HSCore.components.HSTabs.init('[role="tablist"]');
-            }, 200);
-        });
-    </script>
-@endif
 <!-- Chatter JS -->
 @yield('js')
 

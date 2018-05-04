@@ -145,7 +145,7 @@ class Feed
 	 */
 	public function toArray(SimpleXMLElement $xml = NULL)
 	{
-		if ($xml === NULL) {
+	    if ($xml === NULL) {
 			$xml = $this->xml;
 		}
 

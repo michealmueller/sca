@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Auth;
+use App\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\RssController as Rss;
 
 class PurchaseController extends Controller
 {
     public $user;
-    public $profile;
+    public $rss;
+    public $data;
 
-    public function __construct(User $user)
+    public function __construct()
     {
-        $this->user = $user;
-        $this->profile = new ProfileController;
+
+        $this->rss = new Rss;
+        $this->data = [
+            'feeddata' => $this->rss->fetch(3),
+        ];
     }
     /**
      * Display a listing of the resource.
@@ -24,7 +29,8 @@ class PurchaseController extends Controller
     public function index()
     {
         //return the stripe form
-        return view('payments.stripe_checkout');
+        $this->data['user'] = Auth::user();
+        return view('pricing')->with('data', $this->data);
     }
 
     public function CancelSubscriptionIndex()

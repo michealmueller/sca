@@ -32,7 +32,8 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "dg\\": "dg/rssphp/src"
+            "dg\\": "dg/rssphp/src",
+            "inc\\": "inc/magpierss/src"
         }
     },
     "scripts": {
